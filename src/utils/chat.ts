@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { API_URLS, DEFAULT_CONFIG } from './constants';
 
 export const AI_MODELS = [
@@ -60,6 +59,7 @@ export const tryNextModel = async (
             throw new Error('Invalid response from API');
         }
     } catch (error) {
+        console.warn(error)
         // Try the next model
         return tryNextModel(input, messages, currentModelIndex + 1, onModelChange);
     }

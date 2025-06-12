@@ -27,6 +27,7 @@ export default function Home() {
         content: response
       }])
     } catch (error) {
+      console.error(error)
       setMessages(prev => [...prev, {
         role: 'assistant',
         content: 'Sorry, I encountered an error with all available models. Please try again later.'
