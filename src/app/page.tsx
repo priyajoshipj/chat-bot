@@ -72,7 +72,7 @@ export default function Home() {
             <span className="emoji">🤖</span>
           </div>
           <div className="header-text">
-            <h1>AI Assistant</h1>
+            <h1>AI Assistant - Your Personalized ChatGPT-like Experience</h1>
             <p>Using: {currentModel.split('/')[0]}</p>
           </div>
         </div>
