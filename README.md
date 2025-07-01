@@ -27,9 +27,10 @@ graph TD
 - **API Integration**: Fetch API
 
 ### Backend Integration
-- **API Provider**: OpenRouter
+- **API Provider**: OpenRouter (Chat) + Hugging Face (Images)
 - **Authentication**: API Key based
 - **Models**: Multiple AI models with fallback mechanism
+- **Image Generation**: FLUX.1-schnell via Hugging Face Inference API
 
 ## Features
 
@@ -47,17 +48,35 @@ graph TD
   - Loading animations
   - Responsive design
 
+- 🎨 AI Image Generation
+  - Text-to-image using FLUX.1-schnell model
+  - Smart prompt detection (e.g., "generate an image of...")
+  - High-quality image output
+  - One-click download functionality
+  - Responsive image display
+
+- 🎤 Voice Input Support
+  - Real-time speech-to-text transcription
+  - Live voice input with visual feedback
+  - Support for both voice and text input
+  - Browser-based speech recognition
+  - Voice control for both chat and image generation
+
 - 🎨 Modern UI/UX
   - Smooth animations
   - Responsive layout
   - Mobile-friendly design
   - Dynamic message formatting
+  - Auto-expanding text input
+  - Voice button with visual feedback
 
 ## Prerequisites
 
 - Node.js 18.x or later
 - npm or yarn
 - OpenRouter API key
+- Hugging Face API token (for image generation)
+- Modern browser with Web Speech API support (for voice input)
 
 ## Getting Started
 
@@ -74,9 +93,10 @@ npm install
 yarn install
 ```
 
-3. Create a `.env.local` file in the root directory with your OpenRouter API key:
+3. Create a `.env.local` file in the root directory with your API keys:
 ```env
-NEXT_PUBLIC_OPENROUTER_API_KEY=your_api_key_here
+NEXT_PUBLIC_OPENROUTER_API_KEY=your_openrouter_api_key_here
+NEXT_PUBLIC_HUGGINGFACE_TOKEN=your_huggingface_token_here
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_SITE_NAME=AI Chat Assistant
 ```
@@ -89,6 +109,34 @@ yarn dev
 ```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## How to Use
+
+### Chat Functionality
+- Type your message in the text area and press Enter or click Send
+- The AI will respond using one of the available models
+- Chat history is maintained during your session
+
+### Image Generation
+Simply type natural language requests like:
+- "Generate an image of a cat wearing a hat"
+- "Create a picture of a futuristic city at night"
+- "Show me an image of a peaceful mountain lake"
+- "Make an illustration of a robot playing guitar"
+
+The system will automatically detect your image request and generate a high-quality image using the FLUX.1-schnell model. You can then download the image with a single click.
+
+### Voice Input
+1. **Click the microphone button** (🎤) in the input area
+2. **Start speaking** - you'll see your words appear in real-time
+3. **The button turns red** while recording with a pulsing animation
+4. **Click again to stop** or wait for automatic stop
+5. **Use voice for any input** - both chat messages and image generation prompts
+
+**Voice Commands Examples:**
+- 🎤 "Hello, how are you today?"
+- 🎤 "Generate an image of a sunset over the ocean"
+- 🎤 "Create a picture of a dragon flying through clouds"
 
 ## Project Structure
 
@@ -169,7 +217,10 @@ graph TD
 - Next.js 14
 - TypeScript
 - CSS3 with modern features
-- OpenRouter API
+- OpenRouter API (Chat functionality)
+- Hugging Face Inference API (Image generation)
+- Web Speech API (Voice input)
+- FLUX.1-schnell Model (Image generation)
 
 ## Features in Detail
 
@@ -182,13 +233,33 @@ graph TD
 - Responsive chat container
 - Message bubbles with different styles for user and bot
 - Loading animations
-- Input area with send button
+- Auto-expanding textarea input
+- Voice input button with visual feedback
+- Image display with download functionality
 - Formatted message display
 
 ### Message Formatting
 - Support for numbered lists
 - Proper spacing and alignment
 - Dynamic content rendering
+
+### Image Generation
+- **Smart Detection**: Automatically detects image requests from natural language
+- **Prompt Examples**:
+  - "Generate an image of a sunset over mountains"
+  - "Create a picture of a futuristic city"
+  - "Show me an image of a peaceful forest"
+  - "Make an illustration of a robot dancing"
+- **High-Quality Output**: Uses FLUX.1-schnell model for professional results
+- **Download Feature**: One-click download with automatic filename generation
+- **Responsive Display**: Images scale properly on all devices
+
+### Voice Input
+- **Real-time Transcription**: See your words appear as you speak
+- **Live Feedback**: Visual indicators show when recording is active
+- **Cross-Platform**: Works in Chrome, Edge, and other Chromium browsers
+- **Dual Input**: Combine voice and text input seamlessly
+- **Voice Commands**: Use voice for both chat and image generation
 
 ## Performance Considerations
 

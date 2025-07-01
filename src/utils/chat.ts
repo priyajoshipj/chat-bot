@@ -12,6 +12,8 @@ export const AI_MODELS = [
 export interface Message {
     role: 'user' | 'assistant';
     content: string;
+    imageUrl?: string;
+    imagePrompt?: string;
 }
 
 export const tryNextModel = async (
@@ -58,8 +60,7 @@ export const tryNextModel = async (
         } else {
             throw new Error('Invalid response from API');
         }
-    } catch (error) {
-        console.warn(error)
+    } catch {
         // Try the next model
         return tryNextModel(input, messages, currentModelIndex + 1, onModelChange);
     }

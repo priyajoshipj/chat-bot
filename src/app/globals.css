@@ -265,6 +265,39 @@ body {
   color: var(--primary-color);
 }
 
+/* Image Display Styling */
+.image-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.generated-image {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid var(--border-color);
+}
+
+.image-actions {
+  margin-top: 0.75rem;
+}
+
+.download-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.download-button:hover {
+  background: var(--primary-hover);
+}
+
 /* Animations */
 @keyframes messageAppear {
   from {
@@ -347,5 +380,14 @@ body {
   .message {
     max-width: 95%;
     padding: 0.75rem;
+  }
+  
+  .generated-image {
+    max-height: 250px;
+  }
+  
+  .download-button {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
   }
 }
